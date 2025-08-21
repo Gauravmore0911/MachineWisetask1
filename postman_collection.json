@@ -1,0 +1,50 @@
+{
+    "info": {
+      "name": "Machine Sensor Dashboard",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Health",
+        "request": { "method": "GET", "url": "http://localhost:5000/api/health" }
+      },
+      {
+        "name": "List Sensors",
+        "request": { "method": "GET", "url": "http://localhost:5000/api/sensors" }
+      },
+      {
+        "name": "Create Sensor",
+        "request": {
+          "method": "POST",
+          "header": [ { "key": "Content-Type", "value": "application/json" } ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"New Temp\",\n  \"type\": \"temperature\",\n  \"unit\": \"°C\",\n  \"minVal\": 40,\n  \"maxVal\": 100,\n  \"alertThreshold\": 80\n}"
+          },
+          "url": "http://localhost:5000/api/sensors"
+        }
+      },
+      {
+        "name": "Update Sensor",
+        "request": {
+          "method": "PUT",
+          "header": [ { "key": "Content-Type", "value": "application/json" } ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Updated Name\",\n  \"type\": \"temperature\",\n  \"unit\": \"°C\",\n  \"minVal\": 40,\n  \"maxVal\": 100,\n  \"alertThreshold\": 80\n}"
+          },
+          "url": "http://localhost:5000/api/sensors/:id"
+        }
+      },
+      {
+        "name": "Delete Sensor",
+        "request": { "method": "DELETE", "url": "http://localhost:5000/api/sensors/:id" }
+      },
+      {
+        "name": "History",
+        "request": { "method": "GET", "url": "http://localhost:5000/api/history?sensorId=&startTime=&endTime=" }
+      }
+    ]
+  }
+  
+  
